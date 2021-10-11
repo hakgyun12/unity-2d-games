@@ -1,4 +1,12 @@
-# unity-2d-games
+# UNITY 2D GAMES 
 
-출처 : https://www.youtube.com/c/%EA%B3%A0%EB%B0%95%EC%82%AC%EC%9D%98%EC%9C%A0%EB%8B%88%ED%8B%B0%EB%85%B8%ED%8A%B8/videos
+Pacman
+- [x] 맵 제작, 플레이어 캐릭터 제어
+- [x] 적 캐릭터 제어, 아이템, 충돌처리
+
+FlightShooting
+- [x] 플레이어 이동/공격, 배경 스크롤, 적/운석 생성
+- [x] UI 구성, 씬 추가, 애니메이션 재생과 이펙트/효과음
+- [ ] 적 체력, 플레이어 공격 레벨/폭탄, 아이템
+- [ ] 보스 구현(등장 설정, 패턴, 체력, 사망)
 
