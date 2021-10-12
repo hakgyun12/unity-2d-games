@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -7843633653921844137}
   - component: {fileID: -1381815297886522095}
   - component: {fileID: 6583315067291091138}
+  - component: {fileID: -2868471547101839190}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -131,6 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   scorePoint: 100
+  itemPrefabs:
+  - {fileID: 2749440315076281647, guid: 801d107b74f6e454e8409cd2e344cdd0, type: 3}
+  - {fileID: 3705962826351270680, guid: b09508f73159dac4aa6d178bba8c2240, type: 3}
+  - {fileID: 6595764594214605798, guid: 3455841efa2e5f74b96a3bafc5017fb3, type: 3}
   explosionPrefab: {fileID: 5134616096520142525, guid: b832d96be91aeb74cb000d8da253de3c, type: 3}
 --- !u!114 &-1381815297886522095
 MonoBehaviour:
@@ -164,3 +169,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2868471547101839190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5343220506086076909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86967e515f88b844c90e0f8b278ca56e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 4

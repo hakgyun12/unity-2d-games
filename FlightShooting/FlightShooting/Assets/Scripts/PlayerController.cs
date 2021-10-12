@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private StageData stageData;
     [SerializeField]
     private KeyCode keyCodeAttack = KeyCode.Space; //°ø°Ý Å° ¼³Á¤
+    [SerializeField]
+    private KeyCode keyCodeBoom = KeyCode.Z;
     private Weapon weapon;
     private Movement2D movement2D;
     private bool isDie = false;
@@ -48,6 +50,12 @@ public class PlayerController : MonoBehaviour
         else if( Input.GetKeyUp(keyCodeAttack))
         {
             weapon.StopFiring();
+        }
+
+        // ÆøÅº Å°¸¦ ´­·¯ ÆøÅº »ý¼º
+        if (Input.GetKeyDown(keyCodeBoom))
+        {
+            weapon.StartBoom();
         }
     }
 
