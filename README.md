@@ -1,4 +1,4 @@
-# UNITY 2D GAMES 
+# UNITY 2D GAMES
 
 Pacman
 - [x] 맵 제작, 플레이어 캐릭터 제어
