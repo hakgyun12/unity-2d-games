@@ -7,6 +7,8 @@ public class PlayerBoom : MonoBehaviour
     private AnimationCurve curve;
     [SerializeField]
     private AudioClip boomAudio; // 사운드 파일 
+    [SerializeField]
+    private int damage = 100; //폭탄 데미지
     private float boomDelay = 0.5f; // 폭탄 이동 시간 (0.5초 후 폭발)
     private Animator animator;
     private AudioSource audioSource;
@@ -62,6 +64,21 @@ public class PlayerBoom : MonoBehaviour
         for(int i=0; i < meteorites.Length; ++i)
         {
             meteorites[i].GetComponent<Meteorite>().OnDie();
+        }
+
+        // 현재 게임 내에 존재하는 적, 보스의 발사체를 모든 파괴
+        GameObject[] projectiles = GameObject.FindGameObjectsWithTag("EnemyProjectile");
+        for (int i =0; i< projectiles.Length; ++i)
+        {
+            projectiles[i].GetComponent<EnemyProjectile>().OnDie();
+        }
+
+        // 현재 게임 내에서 "Boss" 태그를 가진 오브젝트 정보를 가져온다
+        GameObject boss = GameObject.FindGameObjectWithTag("Boss");
+        if (boss!= null)
+        {
+            // 보스의 체력을 damage만큼 감소시킨다
+            boss.GetComponent<BossHP>().TakeDamage(damage);
         }
 
         // Boom 오브젝트 삭제

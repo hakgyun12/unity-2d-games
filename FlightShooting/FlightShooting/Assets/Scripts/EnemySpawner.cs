@@ -12,15 +12,34 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject enemyHPSliderPrefab; // 적 체력을 나타내는 SliderUI 프리팹
     [SerializeField]
+    private BGMController bgmController; // 배경음악 설정 (보스 등장 시 변경)
+    [SerializeField]
+    private GameObject textBossWarning; // 보스 등장 텍스트 오브젝트
+    [SerializeField]
+    private GameObject panelBossHP; // 보스 체력 패널 오브젝트
+    [SerializeField]
+    private GameObject boss; //보스 오브젝트
+    [SerializeField]
     private Transform canvasTransform; // UI를 표현하는 Canvas 오브젝트의 Transform
+    [SerializeField]
+    private int maxEnemyCount = 100; // 현재 스테이지의 최대 적 생성 숫자
 
     private void Awake()
     {
+        // 보스 등장 텍스트 비활성화
+        textBossWarning.SetActive(false);
+        // 보스 오브젝트 비활성화
+        boss.SetActive(false);
+        // 보스 체력 패널 비활성화
+        panelBossHP.SetActive(false);
+
         StartCoroutine("SpawnEnemy");
     }
 
     private IEnumerator SpawnEnemy()
     {
+        int currentEnemyCount = 0; //적 생성 숫자 카운트용 변수
+
         while(true)
         {
             //x 위치는 스테이지의 크기 범위 내에서 임의의 값을 선택
@@ -31,6 +50,15 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemyClone = Instantiate(enemyPrefab, position, Quaternion.identity);
             // 적 체력을 나타내는 Slider UI 생성 및 설정
             SpawnEnemyHPSlider(enemyClone);
+
+            // 잭 생성 숫자 증가
+            currentEnemyCount++;
+            // 적을 최대 숫자까지 생성하면 적 생성 코루틴 중지, 보스 생성 코루틴 실행
+            if( currentEnemyCount == maxEnemyCount )
+            {
+                StartCoroutine("SpawnBoss");
+                break;
+            }
 
             // spawnTime 만큼 대기
             yield return new WaitForSeconds(spawnTime);
@@ -51,5 +79,24 @@ public class EnemySpawner : MonoBehaviour
         sliderClone.GetComponent<SliderPositionAutoSetter>().Setup(enemy.transform);
         // Slider UI에 자신의 체력 정보를 표시하도록 설정
         sliderClone.GetComponent<EnemyHPViewer>().Setup(enemy.GetComponent<EnemyHP>());
+    }
+
+    private IEnumerator SpawnBoss()
+    {
+        //보스 등장 BMG 설정
+        bgmController.ChangeBGM(BGMType.Boss); //bgmController.ChangeBGM(1); 보다 가독성이 좋다.
+        // 보스 등장 텍스트 활성화
+        textBossWarning.SetActive(true);
+        // 1초 대기
+        yield return new WaitForSeconds(1.0f);
+
+        // 보스 등장 텍스트 비활성화
+        textBossWarning.SetActive(false);
+        // 보스 체력 패널 활성화
+        panelBossHP.SetActive(true);
+        // 보스 오브젝트 활성화
+        boss.SetActive(true);
+        // 보스의 첫 번째 상태인 지정된 위치로 이동 실행
+        boss.GetComponent<Boss>().ChangeState(BossState.MoveToAppearPoint);
     }
 }
