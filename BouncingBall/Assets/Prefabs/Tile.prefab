@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6733220909595635392}
   - component: {fileID: 4319827494426379008}
   - component: {fileID: 6070873680657252116}
+  - component: {fileID: -7174656918062193002}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -95,3 +96,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f2f715f190ecb4998ced7e31a13269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileImages:
+  - {fileID: 21300000, guid: 0886763c65911a541a840ed0faa7149d, type: 3}
+  - {fileID: 21300000, guid: fa680f9d497743547b802138267ad98b, type: 3}
+  - {fileID: 21300000, guid: 532e913c2c3e5be40b8e7d0dcd6d76dd, type: 3}
+  - {fileID: 21300000, guid: 039d178c53a59b843911a42bebff913d, type: 3}
+  - {fileID: 21300000, guid: 43f38131c952edd49805e19111a7d549, type: 3}
+  - {fileID: 21300000, guid: 4b6519aefe145f44797a90ee08b7febb, type: 3}
+  - {fileID: 21300000, guid: 4973b4acf6bd9834594bb57a0813ad74, type: 3}
+  - {fileID: 21300000, guid: af8be69bfb793274a9997e00316985c7, type: 3}
+  itemImages:
+  - {fileID: 21300000, guid: 70d339559a507af40abbe4927e3ebfcf, type: 3}
+  playerImage: {fileID: 0}
+--- !u!65 &-7174656918062193002
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599460940566110422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
