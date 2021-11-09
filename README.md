@@ -10,4 +10,27 @@ FlightShooting
 - [x] 적 체력, 플레이어 공격 레벨/폭탄, 아이템
 - [x] 보스 구현(등장 설정, 패턴, 체력, 사망)
 
+TowerDefense
+
+- [x] 맵 배치, 적 생성 및 이동
+- [x] 타워 배치, 타워의 공격
+- [x] 체력, 골드 시스템
+- [x] 웨이브 시스템
+- [x] 타워 정보 출력
+- [x] 타워 레벨 시스템
+- [x] 타워 배치 시스템
+- [x] 레이저 타워 (Laser Tower)
+- [x] 감속 타워 (Slow Tower)
+- [x] 버프 타워 (Buff Tower)
+
+Bouncing Ball_MapEditer
+
+- [x]  기본 Tile Map 생성
+- [x]  사용자 정의 Tile Map
+- [x]  Tile Map 데이터 저장
+
+Bouncing Ball
+
+- [x] Json을 이용한 게임 Map 구성
+
 출처 : 유튜브 고박사의 유니티 노트

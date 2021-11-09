@@ -1,23 +1,14 @@
 using UnityEngine;
 
-public enum TileType
-{
-    Empty = 0, Base, Broke, Boom, Jump, StraightLeft, StraightRight, Blink, // 타일
-    ItemCoin = 10, // 아이템
-    Player = 100 // 플레이어
-}
+// 타일의 속성 (빈 공간, 기본, 부서질 수 있는 폭탄, 점프, 왼쪽 직진, 오른쪽 직진, 순간이동, 개수 파악용)
+public enum TileType { Empty = 0, Base, Broke, Boom, Jump, StraightLeft, StraightRight, Blink, LastIndex}
+
 public class Tile : MonoBehaviour
 {
     [SerializeField]
-    private Sprite[] tileImages; // 타일 이미지 배열
-    [SerializeField]
-    private Sprite[] itemImages; // 아이템 이미지 배열
-    [SerializeField]
-    private Sprite playerImage; // 플레이어 이미지
-
-    private TileType tileType;
-
-    private SpriteRenderer spriteRenderer;
+    private Sprite[] images; // 타일에 적용될 수 있는 이미지 배열
+    private SpriteRenderer spriteRenderer; // 타일 이미지 변경을 위한 SpriteRendere
+    private TileType tileType; // 현재 타일의 속성
 
     public void Setup(TileType tileType)
     {
@@ -30,23 +21,7 @@ public class Tile : MonoBehaviour
         set
         {
             tileType = value;
-
-            // 타일 (Empty, Base, Broke, Boom, Jump, StraightLeft, StraightRight, Blink)
-            if( (int) tileType < (int) TileType.ItemCoin)
-            {
-                spriteRenderer.sprite = tileImages[(int)tileType];
-            }
-            // 아이템 (Coin)
-            else if ((int) tileType < (int) TileType.Player)
-            {
-                spriteRenderer.sprite = itemImages[(int)tileType - (int)TileType.ItemCoin];
-            }
-            // 플레이어 캐릭터 (맵 에디터에 보여주기 위해 설정하였으며,
-            // 저장할 땐 위치 정보를 저장하고 플레이어 위치의 타일은 Empty로 설정
-            else if ((int) tileType == (int) TileType.Player)
-            {
-                spriteRenderer.sprite = playerImage;
-            }
+            spriteRenderer.sprite = images[(int)tileType - 1];
         }
         get => tileType;
     }
