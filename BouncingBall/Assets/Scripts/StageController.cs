@@ -4,6 +4,8 @@ public class StageController : MonoBehaviour
 {
     [SerializeField]
     private Tilemap2D tilemap2D; // MapData 정보를 바탕으로 맵을 생성하기 위한 Tilemap2D
+    [SerializeField]
+    private PlayerController playerController; // 플레이어 Setup() 메소드 호출을 위한 PlayerController
 
     private void Awake()
     {
@@ -15,5 +17,8 @@ public class StageController : MonoBehaviour
 
         // mapData 정보를 바탕으로 타일 형태의 맵 생성
         tilemap2D.GenerateTilemap(mapData);
+
+        // mapData.playerPosition 정보를 바탕으로 플레이어 위치 설정
+        playerController.Setup(mapData.playerPosition);
     }
 }

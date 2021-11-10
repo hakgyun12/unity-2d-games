@@ -6,5 +6,5 @@ public class MapData
     public Vector2Int mapSize;
     public int[] mapData;
 
-    public Vector2Int PlayerPosition;
+    public Vector2Int playerPosition;
 }
