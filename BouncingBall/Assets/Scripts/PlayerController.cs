@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.position.y <= deathLimitY)
         {
-            Debug.Log("플레이어 사망");
+            // Debug.Log("플레이어 사망");
+            // 플레이어가 낭떠러지로 떨어지면 현재 씬 다시 로드
+            SceneLoader.LoadScene();
         }
 
         UpdateMove();
